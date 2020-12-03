@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\Auth\LoginController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::group(['middleware' => 'auth'], function()
+// {
+//     Route::post('/login', [
+//         'as' => 'po'
+//     ])
+// });
+
+Route::post('login', [LoginController::class, 'login']);
+
+Route::get('user/list', [UserController::class, 'list']);
