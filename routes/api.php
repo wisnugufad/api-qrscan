@@ -30,3 +30,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('login', [LoginController::class, 'login']);
 
 Route::get('user/list', [UserController::class, 'list']);
+Route::get('user/name/{name}', [UserController::class, 'name']);

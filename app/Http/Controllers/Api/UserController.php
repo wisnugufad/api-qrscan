@@ -25,4 +25,15 @@ class UserController extends Controller
             return response()->json(['status'=>'error','message' => $e->getMessage()], 401);
         }     
     }
+
+    public function name($name)
+    {
+        try {
+            // $this->check_token($this->check);
+            return User::where('name',$name)->first(); 
+            // return strval($name);
+        } catch (\Exception $e) {
+            return response()->json(['status'=>'error','message' => $e->getMessage()], 401);
+        }     
+    }
 }
