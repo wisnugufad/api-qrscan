@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Matakuliah;
 use Illuminate\Database\Seeder;
 
 class MatakuliahTableSeeder extends Seeder
@@ -13,6 +14,19 @@ class MatakuliahTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $matakuliah = array(
+            array(
+                'prodi_id'=>5,
+                'name'=>'Pemograman Berbasis Web',
+            ),
+        );
+
+        foreach ($matakuliah as $item)
+        {
+            Matakuliah::create([
+                'prodi_id' => $item['prodi_id'],
+                'name' => $item['name']
+            ]);
+        }
     }
 }
