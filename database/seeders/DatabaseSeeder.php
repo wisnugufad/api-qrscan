@@ -18,7 +18,9 @@ class DatabaseSeeder extends Seeder
             RoleTableSeeder::class,
             UserTableSeeder::class,
             ProdiTableSeeder::class,
+            DosenTableSeeder::class,
             MatakuliahTableSeeder::class,
+            MahasiswaTableSeeder::class,
         ]);
     }
 }

@@ -15,10 +15,11 @@ class CreateMahasiswasTable extends Migration
     {
         Schema::create('mahasiswas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('nrp', 15);
             $table->string('name', 50);
             $table->string('email', 100);
-            $table->bigInteger('prodi')->nullable();
+            $table->bigInteger('prodi_id')->nullable();
             $table->string('telp', 12)->nullable()->unique();
             $table->string('alamat', 200);
             $table->timestamps();
