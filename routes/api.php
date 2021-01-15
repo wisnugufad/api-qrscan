@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\Api\Auth\LoginController;
-use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+// Define Controller
+use App\Http\Controllers\Api\Auth\LoginController;
+use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\MatakuliahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +33,9 @@ Route::post('login', [LoginController::class, 'login']);
 
 Route::get('user/list', [UserController::class, 'list']);
 Route::get('user/name/{name}', [UserController::class, 'name']);
+// Matakuliah Route ------------------------------------------------------
+Route::get('matakuliah', [MatakuliahController::class, 'index']);
+Route::get('matakuliah/{id}', [MatakuliahController::class, 'show']);
+Route::post('matakuliah', [MatakuliahController::class, 'store']);
+Route::put('matakuliah/{id}', [MatakuliahController::class, 'update']);
+Route::delete('matakuliah/{id}', [MatakuliahController::class, 'destroy']);
