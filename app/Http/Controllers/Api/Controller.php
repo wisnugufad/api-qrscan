@@ -38,4 +38,20 @@ class Controller extends BaseController
             Throw new Exception('Unautorized');
         }
     }
+
+    public function get_token_info()
+    {
+        try {
+            // attempt to verify the credentials and create a token for the user
+            $token = Auth::getToken();
+            $user = Auth::getPayload($token)->toArray();
+            return $user;
+        } catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
+            return response()->json(['token_expired'], 500);
+        } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
+            return response()->json(['token_invalid'], 500);
+        } catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
+            return response()->json(['token_absent' => $e->getMessage()], 500);
+        }
+    }
 }

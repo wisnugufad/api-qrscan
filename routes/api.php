@@ -10,6 +10,8 @@ use App\Http\Controllers\Api\DosenController;
 use App\Http\Controllers\Api\MahasiswaController;
 use App\Http\Controllers\Api\ProdiController;
 use App\Http\Controllers\Api\RoleController;
+use App\Http\Controllers\Api\QrCodeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // });
 
 Route::post('login', [LoginController::class, 'login']);
+Route::get('get_info', [LoginController::class, 'get_user_info']);
+// Route Qr
+Route::get('create-qr', [QrCodeController::class, 'create']);
 
 Route::get('user/list', [UserController::class, 'list']);
 Route::get('user/name/{name}', [UserController::class, 'name']);

@@ -176,7 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         // using jwt tymon
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
-
+        // using qrcode
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class
     ],
 
     /*
@@ -228,6 +229,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class
 
     ],
 
