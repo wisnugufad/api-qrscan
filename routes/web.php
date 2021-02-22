@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
+
+Route::get('/home', [Controller::class, 'index'])->name('home');;
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'login']);

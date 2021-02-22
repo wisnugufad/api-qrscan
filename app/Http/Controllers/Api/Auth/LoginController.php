@@ -9,7 +9,12 @@ use App\Models\User;
 
 class LoginController extends Controller
 {
-    
+     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function login(Request $request)
     {
         $creds = $request->only(['email','password']);
